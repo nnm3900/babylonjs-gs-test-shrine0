@@ -6,7 +6,27 @@ scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
 
 // カメラの作成
 //const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 5, 0), scene);
-const camera = new BABYLON.VirtualJoysticksCamera("VJC", new BABYLON.Vector3(0, 5, 0), scene);
+// const camera = new BABYLON.VirtualJoysticksCamera("VJC", new BABYLON.Vector3(0, 5, 0), scene);
+// camera.setTarget(BABYLON.Vector3.Zero());
+// camera.attachControl(canvas, true);
+// camera.applyGravity = true; 
+// camera.checkCollisions = true;
+// camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
+// camera.minZ = 0.45;
+// camera.speed = 0.1;
+// camera.angularSensibility = 4000;
+// camera.keysUp.push(87);
+// camera.keysLeft.push(65);
+// camera.keysDown.push(83);
+// camera.keysRight.push(68);
+
+let camera;
+const isTouchDevice = window.ontouchstart !== undefined;
+if (isTouchDevice) {
+    camera = new BABYLON.VirtualJoysticksCamera("VJC", new BABYLON.Vector3(0, 5, 0), scene);
+} else {
+    camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 5, 0), scene);
+}
 camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
 camera.applyGravity = true; 
@@ -20,16 +40,11 @@ camera.keysLeft.push(65);
 camera.keysDown.push(83);
 camera.keysRight.push(68);
 
-// const VJC = new BABYLON.VirtualJoysticksCamera("VJC", scene.activeCamera.position, scene);
-// VJC.rotation = scene.activeCamera.rotation;
-// VJC.checkCollisions = scene.activeCamera.checkCollisions;
-// VJC.applyGravity = scene.activeCamera.applyGravity;
-
-
-
 
 // debag
 //const axesViewer = new BABYLON.AxesViewer(scene, 5);
+
+// gsplat
 var gs = new BABYLON.GaussianSplattingMesh("Halo", "output.splat", scene);
 gs.position = new BABYLON.Vector3(0, 2, 0);
 gs.rotation = new BABYLON.Vector3(0, 0, 0); 
