@@ -19,6 +19,14 @@ camera.keysLeft.push(65);
 camera.keysDown.push(83);
 camera.keysRight.push(68);
 
+const VJC = new BABYLON.VirtualJoysticksCamera("VJC", scene.activeCamera.position, scene);
+VJC.rotation = scene.activeCamera.rotation;
+VJC.checkCollisions = scene.activeCamera.checkCollisions;
+VJC.applyGravity = scene.activeCamera.applyGravity;
+
+
+
+
 // debag
 //const axesViewer = new BABYLON.AxesViewer(scene, 5);
 var gs = new BABYLON.GaussianSplattingMesh("Halo", "output.splat", scene);
