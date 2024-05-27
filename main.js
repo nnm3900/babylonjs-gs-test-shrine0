@@ -5,7 +5,8 @@ const scene = new BABYLON.Scene(engine);
 scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
 
 // カメラの作成
-const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 5, 0), scene);
+//const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 5, 0), scene);
+const camera = new BABYLON.VirtualJoysticksCamera("VJC", new BABYLON.Vector3(0, 5, 0), scene);
 camera.setTarget(BABYLON.Vector3.Zero());
 camera.attachControl(canvas, true);
 camera.applyGravity = true; 
@@ -19,10 +20,10 @@ camera.keysLeft.push(65);
 camera.keysDown.push(83);
 camera.keysRight.push(68);
 
-const VJC = new BABYLON.VirtualJoysticksCamera("VJC", scene.activeCamera.position, scene);
-VJC.rotation = scene.activeCamera.rotation;
-VJC.checkCollisions = scene.activeCamera.checkCollisions;
-VJC.applyGravity = scene.activeCamera.applyGravity;
+// const VJC = new BABYLON.VirtualJoysticksCamera("VJC", scene.activeCamera.position, scene);
+// VJC.rotation = scene.activeCamera.rotation;
+// VJC.checkCollisions = scene.activeCamera.checkCollisions;
+// VJC.applyGravity = scene.activeCamera.applyGravity;
 
 
 
