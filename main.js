@@ -61,13 +61,32 @@ const footstep = new BABYLON.Sound("Music", "footstep.mp3", scene, null, {
     length: 1, 
     offset: 0
 });
-window.addEventListener("keydown", function (evt) {
-    if(!footstep.isPlaying){
-        if (evt.keyCode === 87  || evt.keyCode === 65 || evt.keyCode === 83 || evt.keyCode === 68) {
-            footstep.play();
-        }
+// window.addEventListener("keydown", function (evt) {
+//     if(!footstep.isPlaying){
+//         if (evt.keyCode === 87  || evt.keyCode === 65 || evt.keyCode === 83 || evt.keyCode === 68) {
+//             footstep.play();
+//         }
+//     }
+// });
+
+let prevCameraPosition = camera.position.clone();
+function checkCameraPositionChange() {
+    const currentCameraPosition = camera.position;
+    // 前回の位置と現在の位置を比較
+    if (!currentCameraPosition.equals(prevCameraPosition)) {
+      console.log("Camera position changed!");
+      console.log("Previous position:", prevCameraPosition);
+      console.log("Current position:", currentCameraPosition);
+  
+      // 必要な処理を実行する
+      if(!footstep.isPlaying){
+        footstep.play();
+      }
+  
+      // 現在の位置を前回の位置として保存
+      prevCameraPosition = currentCameraPosition.clone();
     }
-});
+  }
 
 // 光源の作成
 const light = new BABYLON.HemisphericLight('light', new BABYLON.Vector3(0, 1, 0), scene);
@@ -86,6 +105,8 @@ camera.angularSensibility = angularSensibility;
 // シーンのレンダリング
 engine.runRenderLoop(() => {
     scene.render();
+    checkCameraPositionChange();
+
 });
 
 // ウィンドウのリサイズ時の処理
