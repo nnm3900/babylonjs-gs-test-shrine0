@@ -5,21 +5,6 @@ const scene = new BABYLON.Scene(engine);
 scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
 
 // カメラの作成
-//const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 5, 0), scene);
-// const camera = new BABYLON.VirtualJoysticksCamera("VJC", new BABYLON.Vector3(0, 5, 0), scene);
-// camera.setTarget(BABYLON.Vector3.Zero());
-// camera.attachControl(canvas, true);
-// camera.applyGravity = true; 
-// camera.checkCollisions = true;
-// camera.ellipsoid = new BABYLON.Vector3(1, 1, 1);
-// camera.minZ = 0.45;
-// camera.speed = 0.1;
-// camera.angularSensibility = 4000;
-// camera.keysUp.push(87);
-// camera.keysLeft.push(65);
-// camera.keysDown.push(83);
-// camera.keysRight.push(68);
-
 let camera;
 const isTouchDevice = window.ontouchstart !== undefined;
 if (isTouchDevice) {
@@ -52,16 +37,16 @@ const scale = 2
 gs.scaling = new BABYLON.Vector3(scale, scale, scale);
 
 //bgm
-BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
-window.addEventListener(
-  "click",
-  () => {
-    if (!BABYLON.Engine.audioEngine.unlocked) {
-      BABYLON.Engine.audioEngine.unlock();
-    }
-  },
-  { once: true },
-);
+// BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
+// window.addEventListener(
+//   "click",
+//   () => {
+//     if (!BABYLON.Engine.audioEngine.unlocked) {
+//       BABYLON.Engine.audioEngine.unlock();
+//     }
+//   },
+//   { once: true },
+// );
 const bgm = new BABYLON.Sound("Music", "bgm.mp3", scene, null, {
     loop: true,
     autoplay: true,
