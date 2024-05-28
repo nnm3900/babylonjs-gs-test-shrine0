@@ -30,8 +30,8 @@ camera.keysRight.push(68);
 //const axesViewer = new BABYLON.AxesViewer(scene, 5);
 
 // gsplat
-var gs0 = new BABYLON.GaussianSplattingMesh("Halo", "output_000.splat", scene);
-var gs1 = new BABYLON.GaussianSplattingMesh("Halo", "output_001.splat", scene);
+var gs0 = new BABYLON.GaussianSplattingMesh("gs0", "output_000.splat", scene);
+var gs1 = new BABYLON.GaussianSplattingMesh("gs1", "output_001.splat", scene);
 gs0.position = new BABYLON.Vector3(0, 2, 0);
 gs0.rotation = new BABYLON.Vector3(0, 0, 0); 
 const scale = 2
