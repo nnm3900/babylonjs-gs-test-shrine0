@@ -30,11 +30,15 @@ camera.keysRight.push(68);
 //const axesViewer = new BABYLON.AxesViewer(scene, 5);
 
 // gsplat
-var gs = new BABYLON.GaussianSplattingMesh("Halo", "output.splat", scene);
-gs.position = new BABYLON.Vector3(0, 2, 0);
-gs.rotation = new BABYLON.Vector3(0, 0, 0); 
+var gs0 = new BABYLON.GaussianSplattingMesh("Halo", "output_000.splat", scene);
+var gs1 = new BABYLON.GaussianSplattingMesh("Halo", "output_001.splat", scene);
+gs0.position = new BABYLON.Vector3(0, 2, 0);
+gs0.rotation = new BABYLON.Vector3(0, 0, 0); 
 const scale = 2
-gs.scaling = new BABYLON.Vector3(scale, scale, scale);
+gs0.scaling = new BABYLON.Vector3(scale, scale, scale);
+gs1.position = new BABYLON.Vector3(0, 2, 0);
+gs1.rotation = new BABYLON.Vector3(0, 0, 0); 
+gs1.scaling = new BABYLON.Vector3(scale, scale, scale);
 
 //bgm
 // BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
